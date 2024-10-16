@@ -6,13 +6,15 @@ import { createServer } from 'http';
 import { WebSocketServer } from 'ws';
 import { useServer } from 'graphql-ws/lib/use/ws';
 import { makeExecutableSchema } from '@graphql-tools/schema';
-
+import dotenv from 'dotenv';  // Import dotenv
 import userTypeDefs from './typeDefs/userTypeDefs';
 import postTypeDefs from './typeDefs/postTypeDefs';
 import userResolvers from './resolvers/userResolvers';
 import postResolvers from './resolvers/postResolvers';
 import connectToDb from './db/dbConnect';
 import cors from 'cors';
+
+dotenv.config();  // Load .env variables
 
 const startServer = async () => {
   const app = express();
